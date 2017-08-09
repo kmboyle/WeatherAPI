@@ -13,14 +13,24 @@ var Admin = require("./Admin");
 //     * For `node CLI user location`
 //       * create a `new User` object passing the `name` and `location` as constructor arguments
 //       * call `newUserSearch` and pass the `name` and `location` to it
-var name = process.argv[2];
-var isValidName = (name.trim().length > 0);
-var location = process.argv[3];
+var loginType = process.argv[2];
+var isValidName = false;
+var isValidLocation = false;
+var name = process.argv[3];
+var location = process.argv[4];
 
-if (name.toLowerCase() === "admin") {
+if (name) {
+    isValidName = (name.trim().length > 0);
+}
+if (location) {
+    isValidLocation = (location.trim().length > 0);
+
+}
+
+if (loginType.toLowerCase() === "admin") {
     var admin = new Admin();
     admin.getData();
-} else if (name.toLowerCase() === "user") {
+} else if (isValidName && isValidLocation) {
     var person = new User(name, location);
     person.getUsersWeather();
 } else {
