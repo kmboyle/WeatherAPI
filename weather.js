@@ -15,5 +15,8 @@ var Weather = function(name, location) {
     }
 }
 
-var myWeather = new Weather("Kevin", "Charlotte, NC");
-myWeather.getWeather();
+//create a user constructor
+//var myWeather = new Weather("Kevin", "Charlotte, NC");
+//myWeather.getWeather();
+
+module.exports = Weather;
